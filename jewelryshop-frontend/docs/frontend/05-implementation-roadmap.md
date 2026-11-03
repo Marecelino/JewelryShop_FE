@@ -48,7 +48,8 @@ gantt
   - `src/features/auth/store/authStore.ts`, `src/features/auth/api/useAuth.ts`
   - `src/features/auth/components/LoginForm.tsx`, `src/features/auth/components/RegisterForm.tsx`
   - `src/components/guards/ProtectedRoute.tsx`, `src/components/guards/RoleGuard.tsx`
-  - `src/routes/index.tsx`, `src/layouts/RootLayout.tsx`
+  - `src/components/common/ScrollToTop.tsx`, `src/hooks/useDocumentTitle.ts`
+  - `src/routes/index.tsx`, `src/layouts/RootLayout.tsx`, `src/layouts/StorefrontLayout.tsx`, `src/layouts/AdminLayout.tsx`
 - **Kịch bản kiểm thử cần đạt (Tests)**:
   - Unit test cho `authStore`: Đảm bảo lưu đúng token và giải mã claims (`sub`, `roles`).
   - Unit test cho `RegisterForm` và `LoginForm`: Kiểm tra Zod validation ngăn submit dữ liệu rỗng.

@@ -1,0 +1,56 @@
+{
+  "brandName": "JewelryShop",
+  "brandTagline": "Tinh hoa kim hoàn chế tác thủ công cao cấp",
+  "nav": {
+    "collection": "Bộ Sưu Tập",
+    "about": "Về Showroom",
+    "cart": "Giỏ Hàng",
+    "login": "Đăng Nhập",
+    "register": "Đăng Ký",
+    "profile": "Hồ Sơ Của Tôi",
+    "orders": "Đơn Hàng Của Tôi",
+    "admin": "Trang Quản Trị",
+    "logout": "Đăng Xuất",
+    "menu": "Menu"
+  },
+  "actions": {
+    "submit": "Xác Nhận",
+    "cancel": "Hủy Bỏ",
+    "close": "Đóng",
+    "save": "Lưu Thay Đổi",
+    "delete": "Xóa",
+    "edit": "Chỉnh Sửa",
+    "view": "Xem Chi Tiết",
+    "back": "Quay Lại",
+    "retry": "Thử Lại",
+    "loading": "Đang xử lý...",
+    "search": "Tìm kiếm...",
+    "filter": "Bộ lọc",
+    "all": "Tất Cả"
+  },
+  "status": {
+    "active": "Đang kinh doanh",
+    "inactive": "Ngừng kinh doanh",
+    "available": "Có sẵn tại quầy",
+    "outOfStock": "Tạm hết hàng",
+    "updating": "Đang cập nhật tồn kho"
+  },
+  "footer": {
+    "promise": "Cam kết 100% vàng đủ tuổi, kim cương & đá quý tự nhiên có mã kiểm định quốc tế.",
+    "pickupNote": "Dịch vụ giữ chỗ trực tiếp tại showroom trong 15 phút. Nhận trang sức và thanh toán tại tiệm.",
+    "hours": "Giờ mở cửa: 08:30 – 21:00 (Thứ Hai – Chủ Nhật)",
+    "address": "Showroom: Tòa nhà Kim Hoàn, Hà Nội, Việt Nam",
+    "copyright": "© 2026 JewelryShop. Bản quyền thuộc về thương hiệu JewelryShop."
+  },
+  "notFound": {
+    "title": "404 — Không Tìm Thấy Trang",
+    "message": "Trang bạn đang tìm kiếm không tồn tại hoặc đã được chuyển hướng.",
+    "backHome": "Về Trang Chủ Bộ Sưu Tập"
+  },
+  "forbidden": {
+    "title": "403 — Từ Chối Truy Cập",
+    "message": "Bạn không có quyền quản trị viên (ROLE_ADMIN) để truy cập khu vực này.",
+    "backHome": "Quay Về Trang Chủ"
+  }
+}
+

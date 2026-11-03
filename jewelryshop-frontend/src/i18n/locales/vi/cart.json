@@ -1,0 +1,15 @@
+{
+  "cartTitle": "Giỏ Hàng Trang Sức",
+  "emptyCart": "Giỏ hàng của bạn đang trống.",
+  "emptySubtitle": "Hãy chiêm ngưỡng các tuyệt tác kim hoàn và chọn cho mình món trang sức ưng ý.",
+  "exploreCollection": "Khám Phá Bộ Sưu Tập",
+  "itemCount": "{{count}} món trang sức",
+  "capacity": "Dung lượng giỏ: {{current}}/20 món",
+  "limitNotice": "Mỗi món tối đa 10 chiếc; tổng đơn không quá 20 chiếc (quy định an toàn bảo hiểm kim hoàn).",
+  "subtotal": "Tạm tính",
+  "total": "Tổng Giá Trị Giữ Chỗ",
+  "proceedToCheckout": "Tiến Hành Giữ Chỗ",
+  "remove": "Bỏ chọn",
+  "clearCart": "Xóa toàn bộ giỏ"
+}
+

@@ -205,6 +205,100 @@ Prefer theme tokens and reusable variants over ad-hoc inline styling. Use semant
 - Prevent horizontal overflow. Let long product names and translated labels wrap gracefully.
 - Do not hide critical actions on mobile. Maintain keyboard access for drawers, menus, dialogs, and language switching.
 
+## 14. Navigation component behavior
+
+### 14.1. Desktop header (≥900px)
+
+- Sticky `<AppBar>` using `position="sticky"` so it scrolls away for long catalog pages but returns on scroll-up.
+- Logo (wordmark, espresso color, Playfair Display) aligned left.
+- Primary nav links inline in the `<Toolbar>`: **Bộ Sưu Tập** (`/`), and any additional confirmed links.
+- Right cluster: language switcher (VI / EN), cart icon with quantity badge, account menu icon.
+- Account menu: when authenticated shows username chip, profile link, "Đơn hàng của tôi", Admin link (ROLE_ADMIN only), and logout. When unauthenticated shows "Đăng nhập" and "Đăng ký" buttons.
+- Active nav link uses the secondary accent color (`#B08D57`) underline or left border indicator.
+- Hover state: primary text lightens slightly; no background highlight that looks like a button.
+
+### 14.2. Mobile and tablet navigation (<900px)
+
+- Primary nav links hidden from the `<Toolbar>`. A hamburger `<IconButton>` at the left or right edge opens a temporary `<Drawer>` from the left.
+- Drawer contains: wordmark at top, full-width stacked nav links, divider, language toggle, and account actions.
+- Drawer width: `min(280px, 80vw)` to avoid covering the full screen on small phones.
+- The cart icon and account icon remain visible in the collapsed `<Toolbar>` at all times.
+
+### 14.3. Drawer and menu interaction states
+
+| State | Specification |
+|---|---|
+| **Open** | Drawer slides in from left; backdrop covers the rest of the page; focus moves to the first interactive element inside |
+| **Closed** | Drawer slides out; focus returns to the trigger button |
+| **Escape key** | Closes drawer and returns focus to trigger |
+| **Backdrop click** | Closes drawer |
+| **Active link** | Gold `#B08D57` accent left border; slightly heavier font weight |
+| **Disabled link** | Rendered as text (not a link), muted text color `#6F675F` |
+| **Focus visible** | 3px muted-gold focus ring (`0 0 0 3px rgba(176,141,87,0.35)`) on all interactive elements |
+
+### 14.4. Touch targets
+
+All interactive controls in the navigation — hamburger button, nav links, icon buttons, language toggle — must have a minimum touch target of **44×44px** via padding even if the visual element is smaller.
+
+## 15. Route-level layout conventions
+
+Each confirmed route uses exactly one of the following layouts:
+
+| Layout | Purpose | Includes |
+|---|---|---|
+| `RootLayout` | Wraps the entire application | `QueryClientProvider`, `ThemeProvider`, `CssBaseline`, toast/snackbar outlet, i18next provider |
+| `StorefrontLayout` | Customer-facing storefront pages | `AppHeader`, `AppFooter`, main `<Container>` with `contentMaxWidth: 1280px` |
+| `AdminLayout` | Staff/admin management screens | `AppHeader` (admin variant), side navigation, denser information grid — no editorial storefront gutters |
+| Bare (no chrome) | Login, Register, 404 | No `<AppHeader>` or `<AppFooter>`; centered card layout; background uses `surface-subtle` |
+
+Nested routes under `/admin/*` use `AdminLayout` as their parent. Nested routes under `/*` (storefront) use `StorefrontLayout`. Login and register are bare with `RootLayout` as the ancestor only for providers.
+
+Admin layout reuses the same MUI theme tokens as the storefront but swaps editorial spacing for information-density defaults (compact table rows, tighter sidebar, dense typography scale).
+
+## 16. Scroll and focus behavior
+
+- **Route change (path change)**: Scroll to the top of the page. Implement via a `<ScrollToTop>` component that calls `window.scrollTo(0, 0)` on `pathname` change.
+- **Query parameter change only** (e.g., page, category filter, sort): **Do not scroll to top**. The user is refining a result within the same page context. Preserve their position.
+- **Dialog/modal open**: Focus moves into the modal and is trapped until the modal closes.
+- **Dialog/modal close**: Focus returns to the element that triggered it.
+- **Page-level heading**: Every page renders exactly one visible `<h1>` that matches the `document.title` (translated). Screen readers use this to announce the page after navigation.
+- **`aria-live` regions**: Use `aria-live="polite"` for cart count updates, search result counts, and non-critical status messages. Use `aria-live="assertive"` only for time-sensitive reservation progress updates (202 Accepted polling state).
+- **Reduced motion**: All transitions and animations must be wrapped with `@media (prefers-reduced-motion: reduce)` guards. MUI's `transitions.create()` helper with a `duration` of 0ms in the reduced-motion media query is preferred.
+
+## 17. Page-level UX interaction contract
+
+Every confirmed route must implement all of the following states where applicable:
+
+| State | Specification |
+|---|---|
+| **Loading** | Skeleton with same dimensions as the success layout; no content shift (CLS < 0.1) |
+| **Success** | Data rendered; `document.title` updated; `<h1>` present |
+| **Empty** | Explains what is absent; provides a clear next step (e.g., link back to catalog) |
+| **Error** | Inline `<Alert severity="error">` with a human-readable message; never white-screen |
+| **Unauthorized (401)** | Redirect to `/login` with `state.from` preserved for post-login redirect |
+| **Forbidden (403)** | Render a 403 screen in place; do not redirect to login |
+| **Validation** | Field-level error text below the relevant input (`MUI HelperText`); form-level error in an `<Alert>` above the submit button |
+| **Pending mutation** | Submit button shows loading state and is disabled; sibling buttons not displaced |
+| **Success feedback** | Only after the API returns a success status; use `<Snackbar>` for transient confirmations |
+| **Downstream error (503)** | Friendly inline banner; do not hide the rest of the page |
+
+For forms: prevent duplicate submission by disabling the submit button while the mutation is in flight. Preserve user input after recoverable API errors (4xx). Clear the form only after a confirmed success response.
+
+For catalog pages: preserve `category`, `page`, `size`, and `sort` in the URL. Browser Back must restore the exact filter state. Do not reset filters on navigation away and return unless the user explicitly clears them.
+
+## 18. Metadata and SEO
+
+JewelryShop frontend is a **client-rendered SPA** (Vite, no SSR). The following is the approved pragmatic metadata strategy:
+
+- **`index.html`**: Static `<title>JewelryShop — Trang Sức Cao Cấp</title>` and `<meta name="description">` covering the store homepage.
+- **Route-level `document.title`**: Set in each page component via a `useDocumentTitle(title: string)` hook that calls `document.title = title` on mount and resets to the app name on unmount. Format: `"{Page Name} — JewelryShop"`.
+- **No server-side rendering** is in scope. Product detail pages will not be crawled by search engines without pre-rendering. This is a known limitation documented in `docs/frontend/07-backend-gaps-and-risk-register.md`.
+- **`<meta name="robots" content="noindex">` on admin routes**: Prevent search engines from indexing `/admin/*` pages.
+- **Canonical URL**: Not addressable in pure CSR. If organic search visibility for public product pages becomes a business requirement, evaluate Vite SSG (static site generation) or a separate pre-rendering step as a distinct decision — do not silently migrate the framework.
+- **Open Graph / social sharing**: Add `<meta property="og:title">`, `<meta property="og:description">`, and `<meta property="og:image">` tags in `index.html` for the store homepage only. Per-page OG tags require SSR or pre-rendering.
+
+
+
 ## 10. Accessibility and motion
 
 Target WCAG 2.2 AA where practical. Maintain sufficient text and control contrast, keyboard navigation, visible focus, meaningful accessible names, correct heading order, properly associated form labels, alt text for meaningful product images, and focus management for dialogs and drawers. Do not use color alone to signal availability, errors, or order/reservation status.

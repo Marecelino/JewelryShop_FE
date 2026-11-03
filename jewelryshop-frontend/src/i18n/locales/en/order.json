@@ -1,0 +1,38 @@
+{
+  "checkoutTitle": "Confirm Showroom Reservation",
+  "reservationCommitment": "In-Store Physical Reservation Commitment",
+  "reservationNotice": "Selected jewelry pieces will be locked and reserved exclusively for you at our showroom for 15 minutes. Please visit our showroom or be ready for our consultant to contact you regarding inspection and payment.",
+  "noShippingNotice": "Important: JewelryShop offers physical in-store inspection and pickup only. To guarantee bullion and gem authentication, postal shipping is strictly not offered.",
+  "confirmOrderBtn": "Confirm 15-Minute Reservation",
+  "orderProcessing": "Locking physical barcode records...",
+  "reservationSuccess": "Jewelry pieces reserved successfully!",
+  "reservationPending": "Physical inventory reservation pending (202 Accepted). Auto-polling status...",
+  "reservationFailed": "Selected pieces were just reserved by another customer. Please choose alternative pieces.",
+  "orderHistoryTitle": "Reservation & Order History",
+  "orderReference": "Order Reference",
+  "orderDate": "Date",
+  "orderStatus": "Status",
+  "totalAmount": "Total Amount",
+  "actions": "Actions",
+  "statusMap": {
+    "PENDING_RESERVATION": "Pending Reservation...",
+    "AWAITING_PAYMENT": "Awaiting In-Store Payment",
+    "CONFIRMED": "Paid & Picked Up",
+    "CANCELLED": "Cancelled",
+    "RESERVATION_FAILED": "Reservation Failed",
+    "CANCELLATION_PENDING": "Cancelling...",
+    "RESERVATION_EXPIRED": "Expired (15 min)",
+    "RECONCILIATION_REQUIRED": "Reconciliation Required"
+  },
+  "detailTitle": "Order Details #{{reference}}",
+  "itemStatus": "Item Status",
+  "barcode": "Barcode",
+  "unitPrice": "Unit Price",
+  "reservedItemRef": "Reservation Item ID",
+  "cancelOrder": "Cancel Reservation",
+  "cancelConfirmTitle": "Cancel this reservation?",
+  "cancelConfirmBody": "Upon cancellation, reserved physical pieces will immediately be released back to the showroom display. This action cannot be undone.",
+  "confirmCancelBtn": "Confirm Cancellation",
+  "cancelSuccess": "Reservation cancelled and physical stock released."
+}
+

@@ -1,0 +1,36 @@
+{
+  "title": "Jewelry Collection",
+  "subtitle": "Masterpieces hand-crafted with certified gold, natural diamonds, and rare gemstones",
+  "searchPlaceholder": "Search by jewelry name...",
+  "filterByCategory": "Jewelry Categories",
+  "categories": {
+    "all": "All Pieces",
+    "Rings": "Fine Rings",
+    "Necklaces": "Necklaces",
+    "Earrings": "Earrings",
+    "Bracelets": "Bracelets & Bangles",
+    "Pendants": "Pendants"
+  },
+  "sortBy": "Sort By",
+  "sortOptions": {
+    "newest": "Newest",
+    "priceAsc": "Price: Low to High",
+    "priceDesc": "Price: High to Low",
+    "nameAsc": "Name: A to Z"
+  },
+  "inStock": "{{count}} pieces in store",
+  "outOfStock": "Currently out of stock",
+  "stockServiceUnavailable": "Stock service temporarily unavailable",
+  "addToCart": "Add to Cart",
+  "details": "Craftsmanship Details",
+  "material": "Primary Material",
+  "gemstone": "Gemstones",
+  "price": "Listed Price",
+  "description": "Artisanal Description",
+  "availability": "Showroom Availability",
+  "availableCount": "{{count}} ready to experience in store",
+  "reservedCount": "{{count}} currently reserved",
+  "emptyCatalog": "No jewelry pieces match your current filters.",
+  "resetFilters": "Reset Filters"
+}
+

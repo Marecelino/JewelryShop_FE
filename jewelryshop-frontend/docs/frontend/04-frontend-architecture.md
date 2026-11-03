@@ -377,7 +377,111 @@ export interface ApiErrorResponse {
 
 ---
 
-## 7. Tác Động Của Quy Tắc React & Kỹ Năng Đến Quyết Định Kiến Trúc
+## 7. Mô Hình Định Tuyến SPA & Triển Khai (SPA Routing Model & Deployment)
+
+### 7.1. Thư viện và mô hình định tuyến đã được phê duyệt
+
+| Hạng mục | Quyết định |
+|---|---|
+| **Thư viện** | `react-router-dom@^7.18.5` (đã cài đặt, không thay thế) |
+| **Kiểu bộ định tuyến** | `BrowserRouter` (HTML5 History API) hoặc `createBrowserRouter` + `RouterProvider` |
+| **Vị trí cấu hình route** | `src/routes/index.tsx` — đây là nguồn sự thật duy nhất cho toàn bộ cây route |
+| **Tệp page component** | `src/features/*/pages/*.tsx` hoặc `src/pages/*.tsx` |
+| **Layouts** | `src/layouts/RootLayout.tsx`, `StorefrontLayout.tsx`, `AdminLayout.tsx` |
+
+### 7.2. Cây Route đã xác nhận
+
+```tsx
+// src/routes/index.tsx — Minh họa cấu trúc
+<BrowserRouter>
+  <RootLayout>                         {/* Provider container: QueryClient, Theme, i18n, Snackbar */}
+    <Routes>
+      {/* Bare routes — không có Header/Footer */}
+      <Route path="/login"    element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+
+      {/* Storefront routes — có AppHeader + AppFooter */}
+      <Route element={<StorefrontLayout />}>
+        <Route path="/"                        element={<ProtectedRoute><CatalogPage /></ProtectedRoute>} />
+        <Route path="/products/:productId"     element={<ProtectedRoute><ProductDetailPage /></ProtectedRoute>} />
+        <Route path="/cart"                    element={<ProtectedRoute><CartPage /></ProtectedRoute>} />
+        <Route path="/checkout"                element={<ProtectedRoute><CheckoutPage /></ProtectedRoute>} />
+        <Route path="/orders"                  element={<ProtectedRoute><OrderListPage /></ProtectedRoute>} />
+        <Route path="/orders/:orderReference"  element={<ProtectedRoute><OrderDetailPage /></ProtectedRoute>} />
+        <Route path="/profile"                 element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+      </Route>
+
+      {/* Admin routes — có AdminLayout + RoleGuard */}
+      <Route element={<AdminLayout />}>
+        <Route path="/admin/products"  element={<ProtectedRoute requiredRole="ADMIN"><AdminProductsPage /></ProtectedRoute>} />
+        <Route path="/admin/inventory" element={<ProtectedRoute requiredRole="ADMIN"><AdminInventoryPage /></ProtectedRoute>} />
+        <Route path="/admin/orders"    element={<ProtectedRoute requiredRole="ADMIN"><AdminOrdersPage /></ProtectedRoute>} />
+      </Route>
+
+      {/* Not-found fallback */}
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  </RootLayout>
+</BrowserRouter>
+```
+
+**Quy tắc bổ sung:**
+- Chỉ admin page components và các luồng checkout/order được bọc trong `React.lazy()` + `<Suspense>`.
+- Sử dụng `<Link>` hoặc `useNavigate()` cho toàn bộ điều hướng trong ứng dụng. Tuyệt đối không dùng `window.location.href` trong điều hướng thông thường.
+- `window.location.href = '/login'` chỉ được dùng trong trường hợp buộc đăng xuất do 401, sau khi đã xóa sạch auth store.
+
+### 7.3. Quản lý URL State (URL Query Parameters)
+
+Trạng thái duyệt catalog được lưu trong URL query parameters, không phải trong React state:
+
+| Parameter | Mô tả | Ví dụ |
+|---|---|---|
+| `category` | Lọc theo thể loại sản phẩm | `?category=Rings` |
+| `page` | Số trang hiện tại (0-indexed) | `?page=2` |
+| `size` | Số mục mỗi trang | `?size=12` |
+| `sort` | Trường sắp xếp và chiều | `?sort=price,asc` |
+
+Đọc và ghi URL state thông qua `useSearchParams()` của React Router. Tuyệt đối không đồng bộ URL state vào React state bằng `useState`; đây là hai nguồn sự thật riêng biệt.
+
+### 7.4. Hành vi cuộn trang và tiêu điểm (Scroll & Focus)
+
+| Tình huống | Hành vi bắt buộc |
+|---|---|
+| **Thay đổi đường dẫn (path)** | Cuộn về đầu trang (`window.scrollTo(0, 0)`) thông qua `<ScrollToTop>` component |
+| **Thay đổi query parameters** | **KHÔNG cuộn về đầu** — giữ nguyên vị trí cuộn |
+| **Mở Dialog/Modal** | Focus trap vào modal, focus vào phần tử tương tác đầu tiên |
+| **Đóng Dialog/Modal** | Focus trả lại nút kích hoạt ban đầu |
+| **Sau điều hướng** | `<h1>` cấp trang được cập nhật, `document.title` được cập nhật |
+| **Phím Escape** | Đóng Drawer, Dialog, hoặc Popover và trả lại focus |
+
+### 7.5. Tiêu đề trang và Metadata (Document Title & SEO)
+
+JewelryShop là **Client-Side Rendered SPA**. Chiến lược metadata thực tế:
+
+- **`document.title`**: Set bằng hook `useDocumentTitle(title: string)` trong mỗi page component. Định dạng: `"{Tên trang} — JewelryShop"`.
+- **`index.html`**: Chứa `<title>` tĩnh và `<meta name="description">` cho trang chủ.
+- **`/admin/*` routes**: Cần thêm `<meta name="robots" content="noindex">` để ngăn crawlers.
+- **Giới hạn đã biết**: Trang chi tiết sản phẩm (`/products/:id`) sẽ không được index đầy đủ bởi search engine do CSR. Xem thêm tại GAP-09 trong `07-backend-gaps-and-risk-register.md`.
+- **Không di chuyển framework** để giải quyết SEO mà không có quyết định riêng biệt được phê duyệt.
+
+### 7.6. Cấu hình SPA Fallback cho môi trường triển khai
+
+Vì toàn bộ route được phục vụ từ một tệp `index.html`, server hoặc CDN phải chuyển tiếp mọi URL không có tệp vật lý về `index.html`.
+
+| Môi trường | Cấu hình bắt buộc |
+|---|---|
+| **Vite Dev (`npm run dev`)** | Tự động — Vite dev server xử lý fallback nội bộ |
+| **Nginx** | `try_files $uri $uri/ /index.html;` trong block `location /` |
+| **Apache** | `.htaccess`: `FallbackResource /index.html` |
+| **Vercel** | `vercel.json`: `"rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]` |
+| **Netlify** | `_redirects`: `/* /index.html 200` |
+| **Vite Preview** | Không hỗ trợ SPA fallback — chỉ dùng để kiểm thử build cục bộ ngắn hạn |
+
+> **Bắt buộc**: Trước khi triển khai lên môi trường production, xác nhận và ghi lại cấu hình fallback của host cụ thể. Không bỏ qua bước này — người dùng refresh trang trên route bất kỳ (ví dụ `/products/42`) sẽ nhận 404 nếu thiếu cấu hình.
+
+---
+
+## 8. Tác Động Của Quy Tắc React & Kỹ Năng Đến Quyết Định Kiến Trúc
 
 1. **Tuân thủ Official React Rules (React 19)**:
    - **Tính thuần túy (Component Purity)**: Không thay đổi biến nằm ngoài phạm vi component khi đang render.

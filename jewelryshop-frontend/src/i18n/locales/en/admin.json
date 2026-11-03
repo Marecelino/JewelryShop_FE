@@ -1,0 +1,51 @@
+{
+  "title": "Showroom Admin Dashboard",
+  "tabs": {
+    "products": "Product Catalog",
+    "inventory": "Physical Inventory",
+    "orders": "System Orders Oversight"
+  },
+  "products": {
+    "title": "Jewelry Catalog Management",
+    "createBtn": "Add New Product",
+    "editBtn": "Edit",
+    "deleteBtn": "Deactivate",
+    "restoreBtn": "Reactivate",
+    "name": "Product Name",
+    "category": "Category",
+    "material": "Material",
+    "gemstone": "Gemstone",
+    "price": "Price (VND)",
+    "description": "Description",
+    "active": "Status",
+    "activeLabel": "Active",
+    "inactiveLabel": "Deactivated",
+    "createTitle": "Register New Jewelry Product",
+    "editTitle": "Update Product Details"
+  },
+  "inventory": {
+    "title": "Physical Stock Management",
+    "createBtn": "Register Physical Item to Safe",
+    "barcode": "Barcode",
+    "serialNumber": "Serial Number",
+    "actualWeight": "Weight (g)",
+    "purity": "Gold Purity (%)",
+    "certificate": "Certificate ID",
+    "location": "Tray / Safe Code",
+    "status": "Physical Status",
+    "statusMap": {
+      "AVAILABLE": "Available in showcase",
+      "RESERVED": "Reserved by customer",
+      "SOLD": "Sold",
+      "DAMAGED": "Damaged / Maintenance"
+    },
+    "createTitle": "Register Item to Showcase"
+  },
+  "orders": {
+    "title": "System Orders Oversight",
+    "allOrders": "All customer reservations across showroom",
+    "userId": "User ID",
+    "forceCancel": "Cancel on behalf of customer"
+  }
+}
+

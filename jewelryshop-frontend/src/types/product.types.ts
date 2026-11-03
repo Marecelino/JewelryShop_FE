@@ -6,6 +6,14 @@ export interface InventorySummary {
   damagedQuantity: number
 }
 
+// Mirrors ProductImageResponse.java
+export interface ProductImageResponse {
+  imageId: number
+  imageUrl: string
+  displayOrder: number
+  isPrimary: boolean
+}
+
 // Mirrors ProductResponse.java
 export interface ProductResponse {
   productId: number
@@ -19,6 +27,8 @@ export interface ProductResponse {
   active: boolean
   // null means Inventory Service was unavailable - NOT "out of stock"
   inventory: InventorySummary | null
+  primaryImageUrl?: string | null
+  images?: ProductImageResponse[]
 }
 
 // Mirrors CreateProductRequest.java
@@ -41,4 +51,3 @@ export interface UpdateProductRequest {
   description?: string
   active: boolean
 }
-

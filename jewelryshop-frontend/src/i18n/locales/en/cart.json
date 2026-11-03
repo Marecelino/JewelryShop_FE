@@ -1,0 +1,15 @@
+{
+  "cartTitle": "Jewelry Bag",
+  "emptyCart": "Your jewelry bag is empty.",
+  "emptySubtitle": "Explore our curated collection and choose the pieces you wish to reserve.",
+  "exploreCollection": "Explore Collection",
+  "itemCount": "{{count}} pieces",
+  "capacity": "Bag capacity: {{current}}/20 pieces",
+  "limitNotice": "Max 10 per piece; maximum 20 pieces per reservation order for insurance safety.",
+  "subtotal": "Subtotal",
+  "total": "Total Reservation Value",
+  "proceedToCheckout": "Proceed to Reserve",
+  "remove": "Remove",
+  "clearCart": "Clear Bag"
+}
+

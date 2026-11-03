@@ -1,0 +1,51 @@
+{
+  "title": "Bảng Điều Khiển Quản Trị Showroom",
+  "tabs": {
+    "products": "Danh Mục Sản Phẩm (Catalog)",
+    "inventory": "Kho Món Vật Lý (Inventory Items)",
+    "orders": "Giám Sát Đơn Toàn Hệ Thống (Orders)"
+  },
+  "products": {
+    "title": "Quản Lý Danh Mục Trang Sức",
+    "createBtn": "Thêm Mới Sản Phẩm",
+    "editBtn": "Chỉnh Sửa",
+    "deleteBtn": "Ngừng Kinh Doanh",
+    "restoreBtn": "Kích Hoạt Lại",
+    "name": "Tên sản phẩm",
+    "category": "Thể loại",
+    "material": "Chất liệu",
+    "gemstone": "Đá quý",
+    "price": "Giá niêm yết (VND)",
+    "description": "Mô tả",
+    "active": "Trạng thái",
+    "activeLabel": "Đang kinh doanh",
+    "inactiveLabel": "Ngừng kinh doanh",
+    "createTitle": "Đăng Ký Sản Phẩm Trang Sức Mới",
+    "editTitle": "Cập Nhật Thông Tin Sản Phẩm"
+  },
+  "inventory": {
+    "title": "Quản Lý Món Trang Sức Vật Lý",
+    "createBtn": "Nhập Món Vật Lý Mới Vào Kho",
+    "barcode": "Mã vạch Barcode",
+    "serialNumber": "Số Serial",
+    "actualWeight": "Trọng lượng thực (g)",
+    "purity": "Độ tuổi vàng (%)",
+    "certificate": "Mã chứng nhận kiểm định",
+    "location": "Khay trưng bày / Két",
+    "status": "Trạng thái vật lý",
+    "statusMap": {
+      "AVAILABLE": "Có sẵn tại tủ",
+      "RESERVED": "Đang giữ chỗ khách",
+      "SOLD": "Đã bán",
+      "DAMAGED": "Hư hỏng / Chờ bảo dưỡng"
+    },
+    "createTitle": "Đăng Ký Món Trang Sức Vào Tủ Trưng Bày"
+  },
+  "orders": {
+    "title": "Giám Sát Đơn Hàng Hệ Thống",
+    "allOrders": "Tất cả đơn đặt giữ chỗ của khách hàng",
+    "userId": "Mã KH",
+    "forceCancel": "Hủy đơn thay khách"
+  }
+}
+

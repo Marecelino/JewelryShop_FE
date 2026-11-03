@@ -1,0 +1,56 @@
+{
+  "brandName": "JewelryShop",
+  "brandTagline": "Artisanal fine jewelry of timeless elegance",
+  "nav": {
+    "collection": "Collection",
+    "about": "Showroom",
+    "cart": "Cart",
+    "login": "Sign In",
+    "register": "Register",
+    "profile": "My Profile",
+    "orders": "My Orders",
+    "admin": "Admin Dashboard",
+    "logout": "Sign Out",
+    "menu": "Menu"
+  },
+  "actions": {
+    "submit": "Confirm",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save Changes",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View Details",
+    "back": "Back",
+    "retry": "Retry",
+    "loading": "Processing...",
+    "search": "Search...",
+    "filter": "Filter",
+    "all": "All"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "available": "Available in store",
+    "outOfStock": "Out of stock",
+    "updating": "Updating stock"
+  },
+  "footer": {
+    "promise": "Certified purity gold, natural diamonds and gemstones with international certification.",
+    "pickupNote": "15-minute in-store physical reservation. Experience and pay at our showroom.",
+    "hours": "Opening hours: 08:30 – 21:00 (Mon – Sun)",
+    "address": "Showroom: Fine Jewelry Tower, Hanoi, Vietnam",
+    "copyright": "© 2026 JewelryShop. All rights reserved."
+  },
+  "notFound": {
+    "title": "404 — Page Not Found",
+    "message": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to Home Collection"
+  },
+  "forbidden": {
+    "title": "403 — Access Denied",
+    "message": "Administrator privileges (ROLE_ADMIN) are required to access this area.",
+    "backHome": "Back to Home"
+  }
+}
+

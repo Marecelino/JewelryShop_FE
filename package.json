@@ -1,5 +1,11 @@
 {
-  "dependencies": {
-    "npm": "^11.21.1"
+  "name": "jewelryshop-fe-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix jewelryshop-frontend run dev",
+    "build": "npm --prefix jewelryshop-frontend run build",
+    "typecheck": "npm --prefix jewelryshop-frontend run typecheck",
+    "lint": "npm --prefix jewelryshop-frontend run lint",
+    "test": "npm --prefix jewelryshop-frontend run test"
   }
 }

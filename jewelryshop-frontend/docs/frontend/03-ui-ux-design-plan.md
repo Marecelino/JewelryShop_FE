@@ -10,9 +10,9 @@
 ## 1. Định Hướng Thẩm Mỹ & Căn Cứ Thiết Kế (Design Direction & Aesthetic Positioning)
 
 ### 1.1. Hiện trạng tài liệu và định hướng
-- **Kiểm tra thực tế kho mã nguồn**: Tệp `DESIGN.md` và các tệp mockup Google Stitch không tồn tại trong workspace `D:\java\JewelryShop` cũng như máy trạm.
-- **Giải pháp chuyên nghiệp**: Thay vì tự ý bịa đặt hoặc phụ thuộc vào giả định, chúng tôi kiến tạo hệ thống thiết kế lấy cảm hứng từ các thương hiệu kim hoàn cao cấp quốc tế (Cartier, Tiffany & Co., Van Cleef & Arpels) kết hợp với các nguyên tắc trải nghiệm người dùng từ kỹ năng `ui-ux-pro-max` và `design-system`.
-- **Tôn chỉ thẩm mỹ**: *"Tối Giản Sang Trọng, Đậm Chất Thủ Công & Chuẩn Mực Số Liệu Vật Lý"* (Quiet Luxury, Artisanal Elegance & Physical Precision). Giao diện tập trung tôn vinh giá trị của từng món trang sức (chất liệu vàng, giác cắt kim cương, độ tinh khiết) và sự minh bạch tuyệt đối về tình trạng giữ chỗ tại quầy.
+- **Kiểm tra thực tế kho mã nguồn**: Tệp `DESIGN.md` chuẩn của dự án tồn tại tại thư mục gốc `D:\java\JewelryShop_FE\DESIGN.md` (và bản sao đồng bộ tại `docs/frontend/DESIGN.md`). Các tệp mockup Google Stitch hiện chưa có trong kho mã nguồn.
+- **Quy tắc phân định nguồn thẩm mỹ (Precedence)**: Theo quy tắc `AGENTS.md`, `DESIGN.md` là nguồn sự thật tối cao cho phong cách thẩm mỹ của JewelryShop: **Quiet Luxury** (Nền trắng ngà `#FAF8F5`, chữ nâu đậm espresso `#292521`, điểm nhấn vàng đồng nhạt `#B08D57`, typography Playfair Display + DM Sans).
+- **Tôn chỉ thẩm mỹ**: *"Tối Giản Sang Trọng, Đậm Chất Thủ Công & Chuẩn Mực Số Liệu Vật Lý"* (Quiet Luxury, Artisanal Elegance & Physical Precision). Giao diện tập trung tôn vinh giá trị của từng món trang sức (chất liệu vàng, giác cắt kim cương, độ tinh khiết) và sự minh bạch tuyệt đối về tình trạng giữ chỗ tại quầy. Không sử dụng phong cách màu tối kim loại (black & gold overload) hay hiệu ứng rực rỡ giả tạo.
 
 ---
 

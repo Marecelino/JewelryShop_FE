@@ -1,0 +1,36 @@
+{
+  "title": "Bộ Sưu Tập Trang Sức",
+  "subtitle": "Tuyệt tác chế tác tinh xảo từ vàng nguyên chất, kim cương tự nhiên và đá quý cao cấp",
+  "searchPlaceholder": "Tìm kiếm theo tên trang sức...",
+  "filterByCategory": "Danh Mục Trang Sức",
+  "categories": {
+    "all": "Tất Cả Sản Phẩm",
+    "Rings": "Nhẫn Kim Hoàn",
+    "Necklaces": "Dây Chuyền Quý Phái",
+    "Earrings": "Bông Tai Đá Quý",
+    "Bracelets": "Vòng & Lắc Tay",
+    "Pendants": "Mặt Dây Chuyền"
+  },
+  "sortBy": "Sắp xếp",
+  "sortOptions": {
+    "newest": "Mới nhất",
+    "priceAsc": "Giá: Thấp đến Cao",
+    "priceDesc": "Giá: Cao đến Thấp",
+    "nameAsc": "Tên: A đến Z"
+  },
+  "inStock": "Còn {{count}} món tại quầy",
+  "outOfStock": "Tạm hết hàng tại showroom",
+  "stockServiceUnavailable": "Dịch vụ kiểm tra tồn kho đang bận",
+  "addToCart": "Thêm Vào Giỏ",
+  "details": "Chi Tiết Chế Tác",
+  "material": "Chất liệu chính",
+  "gemstone": "Đá quý đính kèm",
+  "price": "Giá niêm yết",
+  "description": "Mô tả chế tác",
+  "availability": "Tình trạng sẵn sàng tại showroom",
+  "availableCount": "{{count}} chiếc có sẵn để trải nghiệm",
+  "reservedCount": "{{count}} chiếc đang giữ chỗ",
+  "emptyCatalog": "Không tìm thấy món trang sức nào phù hợp với bộ lọc hiện tại.",
+  "resetFilters": "Xóa bộ lọc"
+}
+

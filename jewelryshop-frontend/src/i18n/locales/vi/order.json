@@ -1,0 +1,38 @@
+{
+  "checkoutTitle": "Xác Nhận Đặt Lịch & Giữ Chỗ Món Đồ",
+  "reservationCommitment": "Cam Kết Giữ Chỗ Tại Showroom",
+  "reservationNotice": "Các món trang sức vật lý sẽ được hệ thống khóa và giữ riêng cho bạn tại quầy trong vòng 15 phút. Vui lòng đến trực tiếp showroom hoặc giữ máy để nhân viên chăm sóc khách hàng liên hệ hướng dẫn nhận trang sức và thanh toán.",
+  "noShippingNotice": "Lưu ý quan trọng: JewelryShop cung cấp dịch vụ trải nghiệm & nhận trực tiếp tại showroom, không áp dụng giao hàng qua bưu điện/shipper nhằm bảo đảm an toàn kiểm định.",
+  "confirmOrderBtn": "Xác Nhận Giữ Chỗ 15 Phút",
+  "orderProcessing": "Hệ thống đang khóa mã vạch món vật lý...",
+  "reservationSuccess": "Giữ chỗ món trang sức thành công!",
+  "reservationPending": "Đơn hàng đang chờ đồng bộ kho vật lý (202 Accepted). Đang tự động kiểm tra lại...",
+  "reservationFailed": "Rất tiếc! Món trang sức vừa có khách khác giữ chỗ trước đó. Vui lòng thử chọn món khác.",
+  "orderHistoryTitle": "Lịch Sử Đặt & Giữ Chỗ",
+  "orderReference": "Mã đơn hàng",
+  "orderDate": "Ngày đặt",
+  "orderStatus": "Trạng thái",
+  "totalAmount": "Tổng tiền",
+  "actions": "Thao tác",
+  "statusMap": {
+    "PENDING_RESERVATION": "Đang giữ chỗ...",
+    "AWAITING_PAYMENT": "Chờ thanh toán tại quầy",
+    "CONFIRMED": "Đã thanh toán & nhận hàng",
+    "CANCELLED": "Đã hủy đơn",
+    "RESERVATION_FAILED": "Giữ chỗ thất bại",
+    "CANCELLATION_PENDING": "Đang hủy...",
+    "RESERVATION_EXPIRED": "Hết hạn giữ chỗ (15p)",
+    "RECONCILIATION_REQUIRED": "Cần đối soát kho"
+  },
+  "detailTitle": "Chi Tiết Đơn Hàng #{{reference}}",
+  "itemStatus": "Tình trạng món",
+  "barcode": "Mã vạch món",
+  "unitPrice": "Đơn giá",
+  "reservedItemRef": "Mã giữ chỗ",
+  "cancelOrder": "Hủy Giữ Chỗ Món Hàng",
+  "cancelConfirmTitle": "Xác nhận hủy đơn giữ chỗ?",
+  "cancelConfirmBody": "Sau khi hủy, món trang sức vật lý sẽ được hệ thống đưa trở lại tủ trưng bày để phục vụ khách hàng khác. Thao tác này không thể hoàn tác.",
+  "confirmCancelBtn": "Đồng Ý Hủy Giữ Chỗ",
+  "cancelSuccess": "Đã hủy đơn hàng và giải phóng món vật lý thành công."
+}
+
