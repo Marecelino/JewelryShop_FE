@@ -28,9 +28,6 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined'
 import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined'
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined'
 import RemoveCircleOutlinedIcon from '@mui/icons-material/RemoveCircleOutlined'
-import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined'
-import CloseIcon from '@mui/icons-material/Close'
-import { JewelryIllustration } from '../../../components/common/JewelryIllustration'
 import { useTranslation } from 'react-i18next'
 import { useProductsQuery } from '../../catalog/api/useProductsQuery'
 import {
@@ -49,7 +46,7 @@ const CATEGORY_OPTIONS = ['Rings', 'Necklaces', 'Earrings', 'Bracelets', 'Pendan
 
 export const AdminProductsPage: React.FC = () => {
   const { i18n } = useTranslation(['admin', 'common', 'catalog'])
-  useDocumentTitle('Quản Lý Danh Mục — Quản Trị JewelryShop')
+  useDocumentTitle('Quản Lý Danh Mục — Quản Trị')
   const { showToast } = useContext(ToastContext)
 
   const { data: products, isLoading, error } = useProductsQuery()
@@ -60,8 +57,6 @@ export const AdminProductsPage: React.FC = () => {
   // Modal State
   const [modalOpen, setModalOpen] = useState(false)
   const [editingProduct, setEditingProduct] = useState<ProductResponse | null>(null)
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
-  const [previewUrls, setPreviewUrls] = useState<string[]>([])
   const [formData, setFormData] = useState<CreateProductRequest & { active: boolean }>({
     productName: '',
     category: 'Rings',
@@ -83,8 +78,6 @@ export const AdminProductsPage: React.FC = () => {
 
   const handleOpenCreate = () => {
     setEditingProduct(null)
-    setSelectedFiles([])
-    setPreviewUrls([])
     setFormData({
       productName: '',
       category: 'Rings',
@@ -100,8 +93,6 @@ export const AdminProductsPage: React.FC = () => {
 
   const handleOpenEdit = (p: ProductResponse) => {
     setEditingProduct(p)
-    setSelectedFiles([])
-    setPreviewUrls([])
     setFormData({
       productName: p.productName,
       category: p.category,
@@ -113,24 +104,6 @@ export const AdminProductsPage: React.FC = () => {
     })
     setFormError(null)
     setModalOpen(true)
-  }
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) return
-    const files = Array.from(e.target.files)
-    if (files.length + selectedFiles.length > 8) {
-      showToast({ message: 'Tối đa 8 ảnh cho mỗi sản phẩm', severity: 'warning' })
-      return
-    }
-    const updated = [...selectedFiles, ...files]
-    setSelectedFiles(updated)
-    setPreviewUrls(updated.map((f) => URL.createObjectURL(f)))
-  }
-
-  const handleRemoveFile = (index: number) => {
-    const updated = selectedFiles.filter((_, i) => i !== index)
-    setSelectedFiles(updated)
-    setPreviewUrls(updated.map((f) => URL.createObjectURL(f)))
   }
 
   const handleSubmit = async () => {
@@ -166,17 +139,7 @@ export const AdminProductsPage: React.FC = () => {
           price: formData.price,
           description: formData.description || undefined,
         }
-        if (selectedFiles.length > 0) {
-          const formDataPayload = new FormData()
-          const productBlob = new Blob([JSON.stringify(createPayload)], { type: 'application/json' })
-          formDataPayload.append('product', productBlob)
-          selectedFiles.forEach((file) => {
-            formDataPayload.append('images', file)
-          })
-          await createMutation.mutateAsync(formDataPayload)
-        } else {
-          await createMutation.mutateAsync(createPayload)
-        }
+        await createMutation.mutateAsync(createPayload)
         showToast({ message: 'Thêm mới mẫu trang sức thành công!', severity: 'success' })
       }
       setModalOpen(false)
@@ -272,7 +235,7 @@ export const AdminProductsPage: React.FC = () => {
         <Alert severity="error" sx={{ borderRadius: 3 }}>Không thể tải danh sách sản phẩm quản trị từ Product Service.</Alert>
       ) : (
         <Card sx={{ borderRadius: 3.5, overflow: 'hidden' }}>
-          <CardContent sx={{ p: 0 }}>
+          <CardContent sx={{ p: 0, overflowX: 'auto' }}>
             <Table sx={{ minWidth: 700 }}>
               <TableHead sx={{ backgroundColor: brandColors.surfaceSubtle }}>
                 <TableRow>
@@ -299,31 +262,32 @@ export const AdminProductsPage: React.FC = () => {
                             src={p.primaryImageUrl}
                             alt={p.productName}
                             sx={{
-                              width: 38,
-                              height: 48,
+                              width: 42,
+                              height: 42,
                               borderRadius: 1.5,
                               objectFit: 'cover',
-                              flexShrink: 0,
                               border: `1px solid ${brandColors.border}`,
+                              flexShrink: 0,
                             }}
                           />
                         ) : (
                           <Box
                             sx={{
-                              width: 38,
-                              height: 48,
+                              width: 42,
+                              height: 42,
                               borderRadius: 1.5,
-                              overflow: 'hidden',
-                              flexShrink: 0,
+                              backgroundColor: brandColors.surfaceSubtle,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
                               border: `1px solid ${brandColors.border}`,
+                              flexShrink: 0,
                             }}
                           >
-                            <JewelryIllustration category={p.category} ratio="4/5" />
+                            <DiamondOutlinedIcon sx={{ fontSize: 20, color: brandColors.textSecondary }} />
                           </Box>
                         )}
-                        <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                          {p.productName}
-                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '0.9rem' }}>{p.productName}</Typography>
                       </Box>
                     </TableCell>
                     <TableCell>
@@ -450,122 +414,6 @@ export const AdminProductsPage: React.FC = () => {
             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
             sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }}
           />
-
-          {!editingProduct && (
-            <Box sx={{ mt: 0.5 }}>
-              <Typography
-                variant="caption"
-                sx={{
-                  color: brandColors.textSecondary,
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.04em',
-                  display: 'block',
-                  mb: 1,
-                }}
-              >
-                Hình Ảnh Thư Viện (Tối đa 8 ảnh, ảnh đầu tiên là ảnh đại diện)
-              </Typography>
-              <Button
-                variant="outlined"
-                component="label"
-                startIcon={<AddPhotoAlternateOutlinedIcon />}
-                sx={{
-                  borderRadius: 2.5,
-                  borderStyle: 'dashed',
-                  borderWidth: 1.5,
-                  borderColor: brandColors.borderStrong,
-                  width: '100%',
-                  py: 1.5,
-                  color: brandColors.textPrimary,
-                  textTransform: 'none',
-                  fontWeight: 600,
-                  '&:hover': {
-                    borderColor: brandColors.secondary,
-                    backgroundColor: brandColors.surfaceSubtle,
-                  },
-                }}
-              >
-                Chọn Ảnh Từ Thiết Bị (JPEG, PNG, WEBP &lt; 5MB)
-                <input
-                  type="file"
-                  hidden
-                  multiple
-                  accept="image/jpeg,image/png,image/webp"
-                  onChange={handleFileChange}
-                />
-              </Button>
-
-              {previewUrls.length > 0 && (
-                <Box
-                  sx={{
-                    display: 'flex',
-                    gap: 1.5,
-                    mt: 2,
-                    overflowX: 'auto',
-                    pb: 1,
-                    '&::-webkit-scrollbar': { height: 4 },
-                    '&::-webkit-scrollbar-thumb': { backgroundColor: brandColors.border, borderRadius: 2 },
-                  }}
-                >
-                  {previewUrls.map((url, idx) => (
-                    <Box
-                      key={idx}
-                      sx={{
-                        position: 'relative',
-                        width: 72,
-                        height: 90,
-                        borderRadius: 2,
-                        overflow: 'hidden',
-                        flexShrink: 0,
-                        border: idx === 0 ? `2px solid ${brandColors.secondary}` : `1px solid ${brandColors.border}`,
-                        boxShadow: '0 2px 6px rgba(0,0,0,0.06)',
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        src={url}
-                        alt={`Preview ${idx + 1}`}
-                        sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      />
-                      <IconButton
-                        size="small"
-                        onClick={() => handleRemoveFile(idx)}
-                        sx={{
-                          position: 'absolute',
-                          top: 3,
-                          right: 3,
-                          bgcolor: 'rgba(47, 41, 37, 0.75)',
-                          color: '#FFFFFF',
-                          p: 0.3,
-                          '&:hover': { bgcolor: brandColors.error },
-                        }}
-                      >
-                        <CloseIcon sx={{ fontSize: 13 }} />
-                      </IconButton>
-                      {idx === 0 && (
-                        <Box
-                          sx={{
-                            position: 'absolute',
-                            bottom: 0,
-                            width: '100%',
-                            bgcolor: brandColors.secondary,
-                            color: '#FFFFFF',
-                            fontSize: '0.65rem',
-                            fontWeight: 700,
-                            textAlign: 'center',
-                            py: 0.25,
-                          }}
-                        >
-                          Ảnh chính
-                        </Box>
-                      )}
-                    </Box>
-                  ))}
-                </Box>
-              )}
-            </Box>
-          )}
 
           {editingProduct && (
             <FormControlLabel

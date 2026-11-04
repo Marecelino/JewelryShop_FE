@@ -191,6 +191,7 @@ export const ProductDetailPage: React.FC = () => {
             sx={{
               display: 'inline-flex',
               alignItems: 'baseline',
+              flexWrap: 'wrap',
               gap: 1.5,
               p: 2,
               borderRadius: 3,
@@ -202,7 +203,7 @@ export const ProductDetailPage: React.FC = () => {
             <Typography
               variant="h2"
               sx={{
-                fontSize: { xs: '1.75rem', md: '2.1rem' },
+                fontSize: { xs: '1.6rem', md: '2.1rem' },
                 fontWeight: 700,
                 color: brandColors.primary,
                 letterSpacing: '-0.02em',
@@ -222,8 +223,8 @@ export const ProductDetailPage: React.FC = () => {
             </Typography>
           )}
 
-          {/* Bento Specs Grid (Replaces old flat table) */}
-          <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 2, mb: 4 }}>
+          {/* Bento Specs Grid (Responsive: 1 col on mobile, 2 cols on tablet+) */}
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' }, gap: 2, mb: 4 }}>
             <Box sx={{ p: 2, borderRadius: 2.5, backgroundColor: brandColors.surface, border: `1px solid ${brandColors.border}` }}>
               <Typography variant="caption" sx={{ color: brandColors.textSecondary, display: 'block', mb: 0.5 }}>
                 {t('catalog:material', 'Chất liệu chính')}
@@ -242,7 +243,7 @@ export const ProductDetailPage: React.FC = () => {
               </Typography>
             </Box>
 
-            <Box sx={{ gridColumn: 'span 2', p: 2, borderRadius: 2.5, backgroundColor: brandColors.surface, border: `1px solid ${brandColors.border}` }}>
+            <Box sx={{ gridColumn: { xs: 'span 1', sm: 'span 2' }, p: 2, borderRadius: 2.5, backgroundColor: brandColors.surface, border: `1px solid ${brandColors.border}` }}>
               <Typography variant="caption" sx={{ color: brandColors.textSecondary, display: 'block', mb: 0.5 }}>
                 {t('catalog:availability', 'Tồn kho vật lý tại showroom')}
               </Typography>

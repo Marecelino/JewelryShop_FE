@@ -31,6 +31,14 @@ export interface ProductResponse {
   images?: ProductImageResponse[]
 }
 
+// Mirrors ProductImageItemRequest.java (request DTO for direct image upload)
+export interface ProductImageItemRequest {
+  imageUrl: string
+  publicId?: string
+  displayOrder?: number
+  isPrimary?: boolean
+}
+
 // Mirrors CreateProductRequest.java
 export interface CreateProductRequest {
   productName: string
@@ -39,6 +47,7 @@ export interface CreateProductRequest {
   gemstone?: string
   price: number
   description?: string
+  images?: ProductImageItemRequest[]
 }
 
 // Mirrors UpdateProductRequest.java

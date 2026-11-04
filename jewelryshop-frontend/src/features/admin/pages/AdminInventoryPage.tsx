@@ -54,7 +54,7 @@ function renderInventoryStatusChip(status: InventoryItemStatus) {
 
 export const AdminInventoryPage: React.FC = () => {
   useTranslation(['admin', 'common'])
-  useDocumentTitle('Kho Trang Sức Vật Lý — Quản Trị JewelryShop')
+  useDocumentTitle('Kho Trang Sức Vật Lý — Quản Trị')
   const { showToast } = useContext(ToastContext)
 
   const { data: inventoryData, isLoading, error } = useInventoryItemsQuery()
@@ -218,7 +218,7 @@ export const AdminInventoryPage: React.FC = () => {
         <Alert severity="error" sx={{ borderRadius: 3 }}>Không thể tải dữ liệu kho vật lý từ Inventory Service.</Alert>
       ) : (
         <Card sx={{ borderRadius: 3.5, overflow: 'hidden' }}>
-          <CardContent sx={{ p: 0 }}>
+          <CardContent sx={{ p: 0, overflowX: 'auto' }}>
             <Table sx={{ minWidth: 750 }}>
               <TableHead sx={{ backgroundColor: brandColors.surfaceSubtle }}>
                 <TableRow>
