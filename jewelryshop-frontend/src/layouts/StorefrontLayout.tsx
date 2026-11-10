@@ -26,6 +26,12 @@ import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined'
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined'
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined'
+import PhoneInTalkOutlinedIcon from '@mui/icons-material/PhoneInTalkOutlined'
+import OpenInNewIcon from '@mui/icons-material/OpenInNew'
+import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined'
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined'
+import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined'
+import QrCode2OutlinedIcon from '@mui/icons-material/QrCode2Outlined'
 import { Link as RouterLink, Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth, authStore } from '../features/auth/store/authStore'
@@ -65,7 +71,7 @@ export const StorefrontLayout: React.FC = () => {
   }
 
   return (
-    <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: brandColors.background }}>
+    <Box sx={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', backgroundColor: brandColors.background, overflowX: 'hidden' }}>
       {/* Frosted Glass Sticky Header */}
       <AppBar
         position="sticky"
@@ -119,27 +125,27 @@ export const StorefrontLayout: React.FC = () => {
                   variant="h1"
                   sx={{
                     fontFamily: '"Playfair Display", Georgia, serif',
-                    fontSize: { xs: '1.25rem', md: '1.5rem' },
-                    fontWeight: 600,
-                    letterSpacing: '0.08em',
+                    fontSize: { xs: '1.15rem', sm: '1.35rem', md: '1.5rem' },
+                    fontWeight: 700,
+                    letterSpacing: '0.04em',
                     color: brandColors.primary,
-                    lineHeight: 1.1,
+                    lineHeight: 1.15,
                   }}
                 >
-                  JEWELRY SHOP
+                  KIM NGÂN PHÁT
                 </Typography>
                 <Typography
                   variant="caption"
                   sx={{
                     display: { xs: 'none', sm: 'block' },
                     fontSize: '0.65rem',
-                    letterSpacing: '0.14em',
+                    letterSpacing: '0.12em',
                     color: brandColors.secondary,
                     textTransform: 'uppercase',
                     fontWeight: 600,
                   }}
                 >
-                  Haute Joaillerie Atelier
+                  Tiệm Vàng & Chế Tác Kim Hoàn
                 </Typography>
               </Box>
             </Box>
@@ -347,7 +353,7 @@ export const StorefrontLayout: React.FC = () => {
         slotProps={{
           paper: {
             sx: {
-              width: 'min(300px, 82vw)',
+              width: 'min(320px, 85vw)',
               backgroundColor: brandColors.background,
               boxShadow: '0 16px 40px rgba(47, 41, 37, 0.15)',
             },
@@ -357,16 +363,16 @@ export const StorefrontLayout: React.FC = () => {
         <Box sx={{ p: 2.5, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <DiamondOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 24 }} />
-            <Typography variant="h3" sx={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: '1.25rem' }}>
-              JEWELRY SHOP
+            <Typography variant="h3" sx={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: '1.2rem', fontWeight: 700 }}>
+              KIM NGÂN PHÁT
             </Typography>
           </Box>
-          <IconButton onClick={() => setMobileDrawerOpen(false)} aria-label="Đóng menu">
+          <IconButton onClick={() => setMobileDrawerOpen(false)} aria-label="Đóng menu" sx={{ minWidth: 44, minHeight: 44 }}>
             <CloseIcon />
           </IconButton>
         </Box>
         <Divider />
-        <List sx={{ px: 1, py: 1.5 }}>
+        <List sx={{ px: 1, py: 1.5, pb: 'calc(24px + env(safe-area-inset-bottom, 0px))' }}>
           <ListItem disablePadding sx={{ mb: 0.5 }}>
             <ListItemButton
               component={RouterLink}
@@ -480,30 +486,97 @@ export const StorefrontLayout: React.FC = () => {
         <Outlet />
       </Box>
 
-      {/* Luxury Brand Atelier Footer */}
+      {/* Luxury Brand Fine Jewelry Footer */}
       <Box
         component="footer"
         sx={{
           backgroundColor: brandColors.surface,
           borderTop: `1px solid ${brandColors.border}`,
-          pt: { xs: 5, md: 8 },
+          pt: { xs: 6, md: 8 },
           pb: 4,
           mt: 'auto',
+          position: 'relative',
+          overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '100%',
+            maxWidth: 1200,
+            height: '1px',
+            background: 'linear-gradient(90deg, transparent 0%, #B08D57 50%, transparent 100%)',
+            opacity: 0.7,
+          },
         }}
       >
         <Container maxWidth="lg">
-          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '2fr 1.2fr 1.2fr' }, gap: { xs: 4, md: 6 }, mb: 6 }}>
-            {/* Column 1: Brand & Atelier Promise */}
+          {/* Main 4-Column Grid */}
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: '1.4fr 1.2fr 1.2fr 1.2fr' },
+              gap: { xs: 4, sm: 4, lg: 5 },
+              mb: 6,
+            }}
+          >
+            {/* Column 1: Brand & Atelier Purity Guarantee */}
             <Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
-                <DiamondOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 28 }} />
-                <Typography variant="h2" sx={{ fontSize: '1.5rem', color: brandColors.primary, fontFamily: '"Playfair Display", Georgia, serif' }}>
-                  JEWELRY SHOP
-                </Typography>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 38,
+                    height: 38,
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, rgba(216, 195, 165, 0.3) 0%, rgba(176, 141, 87, 0.1) 100%)',
+                    border: '1px solid rgba(176, 141, 87, 0.35)',
+                    color: brandColors.secondary,
+                  }}
+                >
+                  <DiamondOutlinedIcon sx={{ fontSize: 22 }} />
+                </Box>
+                <Box>
+                  <Typography
+                    variant="h2"
+                    sx={{
+                      fontSize: '1.35rem',
+                      color: brandColors.primary,
+                      fontFamily: '"Playfair Display", Georgia, serif',
+                      fontWeight: 700,
+                      letterSpacing: '0.04em',
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    KIM NGÂN PHÁT
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      fontSize: '0.7rem',
+                      letterSpacing: '0.12em',
+                      color: brandColors.secondary,
+                      textTransform: 'uppercase',
+                      fontWeight: 600,
+                      display: 'block',
+                    }}
+                  >
+                    Tiệm Vàng & Chế Tác Kim Hoàn
+                  </Typography>
+                </Box>
               </Box>
-              <Typography variant="body2" sx={{ color: brandColors.textSecondary, mb: 2.5, maxWidth: 460, lineHeight: 1.7 }}>
-                {t('common:footer.promise', 'Nhà chế tác kim hoàn thượng lưu với cam kết 100% vàng nguyên chất, kim cương tự nhiên và chứng thư kiểm định độc lập.')}
+
+              <Typography variant="body2" sx={{ color: brandColors.textSecondary, mb: 2.5, lineHeight: 1.7, fontSize: '0.875rem' }}>
+                {t(
+                  'common:footer.promise',
+                  'Thương hiệu chế tác kim hoàn và vàng bạc đá quý uy tín. Cam kết 100% vàng đủ tuổi, kim cương & đá quý tự nhiên có mã kiểm định độc lập. Giữ trọn giá trị qua từng thế hệ.'
+                )}
               </Typography>
+
+              {/* 15-Minute Reservation Feature Callout */}
               <Box
                 sx={{
                   p: 2,
@@ -511,68 +584,341 @@ export const StorefrontLayout: React.FC = () => {
                   backgroundColor: brandColors.surfaceSubtle,
                   border: `1px solid ${brandColors.border}`,
                   display: 'flex',
-                  alignItems: 'center',
+                  alignItems: 'flex-start',
                   gap: 1.5,
-                  maxWidth: 460,
                 }}
               >
-                <AccessTimeOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 24, flexShrink: 0 }} />
-                <Typography variant="caption" sx={{ color: brandColors.primary, fontWeight: 600, lineHeight: 1.5 }}>
-                  {t('common:footer.pickupNote', 'Hệ thống giữ chỗ độc quyền 15 phút tại showroom. Quý khách trải nghiệm thực tế, kiểm định và thanh toán trực tiếp tại quầy.')}
-                </Typography>
+
               </Box>
             </Box>
 
-            {/* Column 2: Showroom Destination */}
+            {/* Column 2: Showroom & Direct Contact */}
             <Box>
-              <Typography variant="h4" sx={{ mb: 2, color: brandColors.primary, fontWeight: 700 }}>
-                Showroom Trải Nghiệm
+              <Typography
+                variant="h4"
+                sx={{
+                  mb: 2.5,
+                  color: brandColors.primary,
+                  fontWeight: 700,
+                  fontSize: '1rem',
+                  letterSpacing: '0.04em',
+                  textTransform: 'uppercase',
+                  position: 'relative',
+                  display: 'inline-block',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: -6,
+                    left: 0,
+                    width: 28,
+                    height: 2,
+                    backgroundColor: brandColors.secondary,
+                    borderRadius: 1,
+                  },
+                }}
+              >
+                {t('common:footer.showroomTitle', 'Showroom Trải Nghiệm')}
               </Typography>
-              <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.25, mb: 1.5 }}>
-                <LocationOnOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 20, mt: 0.2 }} />
-                <Typography variant="body2" sx={{ color: brandColors.textSecondary }}>
-                  {t('common:footer.address', 'Tòa nhà Kim Hoàn, Hà Nội, Việt Nam')}
-                </Typography>
+
+              {/* Address */}
+              <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.25, mb: 1.75 }}>
+                <LocationOnOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 20, mt: 0.2, flexShrink: 0 }} />
+                <Box>
+                  <Typography variant="body2" sx={{ color: brandColors.textPrimary, fontWeight: 500, lineHeight: 1.5, fontSize: '0.875rem' }}>
+                    {t('common:footer.address', 'ĐT 746B, KP4, P. Bình Cơ, Hồ Chí Minh, Việt Nam')}
+                  </Typography>
+                  <Box
+                    component="a"
+                    href="https://maps.app.goo.gl/cvpm8ijJpxDp4N8z8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 0.5,
+                      mt: 0.75,
+                      fontSize: '0.785rem',
+                      color: brandColors.secondary,
+                      textDecoration: 'none',
+                      fontWeight: 600,
+                      '&:hover': {
+                        textDecoration: 'underline',
+                        color: brandColors.secondaryHover,
+                      },
+                    }}
+                  >
+                    <span>{t('common:footer.viewMap', 'Chỉ đường trên Google Maps')}</span>
+                    <OpenInNewIcon sx={{ fontSize: 14 }} />
+                  </Box>
+                </Box>
               </Box>
-              <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.25, mb: 1.5 }}>
-                <AccessTimeOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 20, mt: 0.2 }} />
-                <Typography variant="body2" sx={{ color: brandColors.textSecondary }}>
-                  {t('common:footer.hours', '08:30 – 21:00 (Thứ Hai – Chủ Nhật)')}
+
+              {/* Hotline Phone */}
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25, mb: 1.75 }}>
+                <PhoneInTalkOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 20, flexShrink: 0 }} />
+                <Box>
+                  <Typography variant="caption" sx={{ color: brandColors.textMuted, display: 'block' }}>
+                    Tư vấn & Khóa giữ chỗ:
+                  </Typography>
+                  <Box
+                    component="a"
+                    href="tel:0974863175"
+                    sx={{
+                      color: brandColors.primary,
+                      fontSize: '0.95rem',
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      letterSpacing: '0.02em',
+                      '&:hover': {
+                        color: brandColors.secondary,
+                      },
+                    }}
+                  >
+                    0974 863 175
+                  </Box>
+                </Box>
+              </Box>
+
+              {/* Opening Hours */}
+              <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.25 }}>
+                <AccessTimeOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 20, mt: 0.2, flexShrink: 0 }} />
+                <Typography variant="body2" sx={{ color: brandColors.textSecondary, lineHeight: 1.5, fontSize: '0.875rem' }}>
+                  {t('common:footer.hours', 'Giờ mở cửa: 08:30 – 21:00 (Tất cả các ngày trong tuần)')}
                 </Typography>
               </Box>
             </Box>
 
             {/* Column 3: Trust & Atelier Policies */}
             <Box>
-              <Typography variant="h4" sx={{ mb: 2, color: brandColors.primary, fontWeight: 700 }}>
-                Cam Kết Bảo An
+              <Typography
+                variant="h4"
+                sx={{
+                  mb: 2.5,
+                  color: brandColors.primary,
+                  fontWeight: 700,
+                  fontSize: '1rem',
+                  letterSpacing: '0.04em',
+                  textTransform: 'uppercase',
+                  position: 'relative',
+                  display: 'inline-block',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: -6,
+                    left: 0,
+                    width: 28,
+                    height: 2,
+                    backgroundColor: brandColors.secondary,
+                    borderRadius: 1,
+                  },
+                }}
+              >
+                {t('common:footer.policyTitle', 'Cam Kết Bảo An Kim Hoàn')}
               </Typography>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.25 }}>
-                <VerifiedOutlinedIcon sx={{ color: brandColors.success, fontSize: 18 }} />
-                <Typography variant="body2" sx={{ color: brandColors.textSecondary }}>
-                  Kiểm định tuổi vàng trực tiếp tại quầy
-                </Typography>
+
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                  <VerifiedOutlinedIcon sx={{ color: brandColors.success, fontSize: 18, mt: 0.3, flexShrink: 0 }} />
+                  <Typography variant="body2" sx={{ color: brandColors.textSecondary, fontSize: '0.85rem', lineHeight: 1.5 }}>
+                    {t('common:footer.policySpectroscopy', 'Kiểm định tuổi vàng quang phổ trực tiếp tại quầy')}
+                  </Typography>
+                </Box>
+
+                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                  <VerifiedOutlinedIcon sx={{ color: brandColors.success, fontSize: 18, mt: 0.3, flexShrink: 0 }} />
+                  <Typography variant="body2" sx={{ color: brandColors.textSecondary, fontSize: '0.85rem', lineHeight: 1.5 }}>
+                    {t('common:footer.policyReservation', 'Khóa giữ chỗ an toàn 15 phút chống trùng món')}
+                  </Typography>
+                </Box>
+
+                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                  <VerifiedOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 18, mt: 0.3, flexShrink: 0 }} />
+                  <Typography variant="body2" sx={{ color: brandColors.textSecondary, fontSize: '0.85rem', lineHeight: 1.5 }}>
+                    {t('common:footer.policyLifetimeCare', 'Bảo dưỡng, đánh bóng và làm sáng trọn đời')}
+                  </Typography>
+                </Box>
+
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: 1,
+                    p: 1.25,
+                    borderRadius: 2,
+                    backgroundColor: brandColors.warningBg,
+                    border: '1px solid rgba(139, 94, 26, 0.2)',
+                  }}
+                >
+
+                </Box>
               </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.25 }}>
-                <VerifiedOutlinedIcon sx={{ color: brandColors.success, fontSize: 18 }} />
-                <Typography variant="body2" sx={{ color: brandColors.textSecondary }}>
-                  Khóa giữ chỗ an toàn 15 phút
-                </Typography>
+            </Box>
+
+            {/* Column 4: Counter Payment & Certifications */}
+            <Box>
+              <Typography
+                variant="h4"
+                sx={{
+                  mb: 2.5,
+                  color: brandColors.primary,
+                  fontWeight: 700,
+                  fontSize: '1rem',
+                  letterSpacing: '0.04em',
+                  textTransform: 'uppercase',
+                  position: 'relative',
+                  display: 'inline-block',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: -6,
+                    left: 0,
+                    width: 28,
+                    height: 2,
+                    backgroundColor: brandColors.secondary,
+                    borderRadius: 1,
+                  },
+                }}
+              >
+                {t('common:footer.paymentTitle', 'Thanh Toán & Chứng Nhận')}
+              </Typography>
+
+              <Typography variant="caption" sx={{ color: brandColors.textMuted, display: 'block', mb: 1.25 }}>
+                Phương thức chấp nhận tại quầy:
+              </Typography>
+
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2.5 }}>
+                <Box
+                  sx={{
+                    px: 1.25,
+                    py: 0.5,
+                    borderRadius: 1.5,
+                    border: `1px solid ${brandColors.border}`,
+                    backgroundColor: brandColors.surfaceSubtle,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 0.75,
+                  }}
+                >
+                  <PaymentsOutlinedIcon sx={{ fontSize: 15, color: brandColors.primary }} />
+                  <Typography variant="caption" sx={{ fontWeight: 600, color: brandColors.primary, fontSize: '0.75rem' }}>
+                    Tiền mặt
+                  </Typography>
+                </Box>
+
+                <Box
+                  sx={{
+                    px: 1.25,
+                    py: 0.5,
+                    borderRadius: 1.5,
+                    border: `1px solid ${brandColors.border}`,
+                    backgroundColor: brandColors.surfaceSubtle,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 0.75,
+                  }}
+                >
+                  <QrCode2OutlinedIcon sx={{ fontSize: 15, color: brandColors.primary }} />
+                  <Typography variant="caption" sx={{ fontWeight: 600, color: brandColors.primary, fontSize: '0.75rem' }}>
+                    VietQR / Napas
+                  </Typography>
+                </Box>
+
+                <Box
+                  sx={{
+                    px: 1.25,
+                    py: 0.5,
+                    borderRadius: 1.5,
+                    border: `1px solid ${brandColors.border}`,
+                    backgroundColor: brandColors.surfaceSubtle,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 0.75,
+                  }}
+                >
+                  <CreditCardOutlinedIcon sx={{ fontSize: 15, color: brandColors.primary }} />
+                  <Typography variant="caption" sx={{ fontWeight: 600, color: brandColors.primary, fontSize: '0.75rem' }}>
+                    Visa / Mastercard
+                  </Typography>
+                </Box>
               </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <VerifiedOutlinedIcon sx={{ color: brandColors.warning, fontSize: 18 }} />
-                <Typography variant="body2" sx={{ color: brandColors.textSecondary }}>
-                  Không áp dụng giao hàng bưu điện
-                </Typography>
+
+              {/* Trust Badges */}
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.25 }}>
+                {/* Bộ Công Thương Badge */}
+                <Box
+                  sx={{
+                    p: 1.25,
+                    borderRadius: 2,
+                    border: '1px solid rgba(46, 125, 50, 0.35)',
+                    backgroundColor: '#F1F8E9',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 1.25,
+                  }}
+                >
+                  <ShieldOutlinedIcon sx={{ color: '#2E7D32', fontSize: 20, flexShrink: 0 }} />
+                  <Box>
+                    <Typography variant="caption" sx={{ color: '#1B5E20', fontWeight: 700, display: 'block', fontSize: '0.725rem' }}>
+                      ĐÃ THÔNG BÁO BỘ CÔNG THƯƠNG
+                    </Typography>
+                    <Typography variant="caption" sx={{ color: '#33691E', fontSize: '0.675rem', display: 'block' }}>
+                      Website TMĐT bán hàng kim hoàn hợp chuẩn
+                    </Typography>
+                  </Box>
+                </Box>
+
+                {/* TCVN Gold Standard Badge */}
+                <Box
+                  sx={{
+                    p: 1.25,
+                    borderRadius: 2,
+                    border: `1px solid ${brandColors.hairlineGold}`,
+                    backgroundColor: 'rgba(216, 195, 165, 0.15)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 1.25,
+                  }}
+                >
+                  <DiamondOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 18, flexShrink: 0 }} />
+                  <Box>
+                    <Typography variant="caption" sx={{ color: brandColors.primary, fontWeight: 700, display: 'block', fontSize: '0.725rem' }}>
+                      TIÊU CHUẨN ĐO LƯỜNG VÀNG TCVN
+                    </Typography>
+                    <Typography variant="caption" sx={{ color: brandColors.textSecondary, fontSize: '0.675rem', display: 'block' }}>
+                      Cân đo điện tử & quang phổ chính xác 99.99%
+                    </Typography>
+                  </Box>
+                </Box>
               </Box>
             </Box>
           </Box>
 
-          <Divider sx={{ borderColor: brandColors.hairline, mb: 3 }} />
+          {/* Bottom Bar: Gold Hairline & Exact User-Specified Copyright */}
+          <Divider sx={{ borderColor: brandColors.hairlineGold, mb: 3 }} />
 
-          <Typography variant="caption" sx={{ color: brandColors.textMuted, display: 'block', textAlign: 'center', letterSpacing: '0.04em' }}>
-            {t('common:footer.copyright', '© 2026 JewelryShop. Bản quyền thuộc về thương hiệu JewelryShop Haute Joaillerie.')}
-          </Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              alignItems: 'center',
+              justifyContent: 'center',
+              textAlign: 'center',
+              gap: 1,
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                color: brandColors.textPrimary,
+                fontSize: { xs: '0.825rem', sm: '0.875rem' },
+                fontWeight: 500,
+                letterSpacing: '0.02em',
+                lineHeight: 1.6,
+              }}
+            >
+              © Copyright Kim Ngân Phát. All rights reserved. Designed by Nguyễn Trọng Thứ
+            </Typography>
+          </Box>
         </Container>
       </Box>
     </Box>

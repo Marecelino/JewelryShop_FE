@@ -37,7 +37,7 @@ export const AdminLayout: React.FC = () => {
   }
 
   return (
-    <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: brandColors.background }}>
+    <Box sx={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', backgroundColor: brandColors.background, overflowX: 'hidden' }}>
       {/* Top Admin Header */}
       <AppBar
         position="sticky"
@@ -48,8 +48,8 @@ export const AdminLayout: React.FC = () => {
           color: brandColors.textInverse,
         }}
       >
-        <Toolbar sx={{ justifyContent: 'space-between', height: 64, px: { xs: 2, md: 4 } }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Toolbar sx={{ justifyContent: 'space-between', height: 64, px: { xs: 1.5, sm: 2, md: 4 } }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1, sm: 2 } }}>
             <Button
               component={RouterLink}
               to="/"
@@ -58,26 +58,49 @@ export const AdminLayout: React.FC = () => {
                 color: brandColors.accent,
                 fontWeight: 600,
                 borderRadius: 2,
-                px: 1.5,
+                px: { xs: 1, sm: 1.5 },
+                fontSize: { xs: '0.8rem', sm: '0.875rem' },
                 '&:hover': {
                   backgroundColor: 'rgba(255,255,255,0.06)',
                   color: '#FFFFFF',
                 },
               }}
             >
-              Về Cửa Hàng
+              <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>Về Cửa Hàng</Box>
+              <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>Về Shop</Box>
             </Button>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               <DiamondOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 22 }} />
-              <Typography variant="h3" sx={{ color: brandColors.textInverse, fontSize: '1.15rem', fontWeight: 600, letterSpacing: '0.02em' }}>
+              <Typography
+                variant="h3"
+                sx={{
+                  color: brandColors.textInverse,
+                  fontSize: { xs: '0.95rem', sm: '1.15rem' },
+                  fontWeight: 600,
+                  letterSpacing: '0.02em',
+                  display: { xs: 'none', sm: 'block' },
+                }}
+              >
                 {t('title', 'Quản Trị Showroom Kim Hoàn')}
+              </Typography>
+              <Typography
+                variant="h3"
+                sx={{
+                  color: brandColors.textInverse,
+                  fontSize: '0.95rem',
+                  fontWeight: 600,
+                  display: { xs: 'block', sm: 'none' },
+                }}
+              >
+                Quản Trị
               </Typography>
             </Box>
           </Box>
 
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1, sm: 2 } }}>
             <Box
               sx={{
+                display: { xs: 'none', sm: 'block' },
                 px: 1.5,
                 py: 0.5,
                 borderRadius: 2,
@@ -100,6 +123,8 @@ export const AdminLayout: React.FC = () => {
                 borderColor: 'rgba(255,255,255,0.25)',
                 color: brandColors.textInverse,
                 borderRadius: 2,
+                px: { xs: 1, sm: 1.5 },
+                fontSize: { xs: '0.8rem', sm: '0.875rem' },
                 '&:hover': {
                   borderColor: brandColors.accent,
                   backgroundColor: 'rgba(255,255,255,0.08)',
@@ -140,7 +165,7 @@ export const AdminLayout: React.FC = () => {
       </Paper>
 
       {/* Admin Content Outlet */}
-      <Container maxWidth="xl" sx={{ py: 4, flexGrow: 1 }}>
+      <Container maxWidth="xl" sx={{ py: { xs: 2.5, sm: 3, md: 4 }, px: { xs: 1.5, sm: 2.5, md: 3 }, flexGrow: 1 }}>
         <Outlet />
       </Container>
     </Box>

@@ -180,7 +180,7 @@ export const OrderDetailPage: React.FC = () => {
 
       {/* Items Table Card */}
       <Card sx={{ mb: 4, borderRadius: 3.5, overflow: 'hidden' }}>
-        <CardContent sx={{ p: 0 }}>
+        <CardContent sx={{ p: 0, overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
           <Table sx={{ minWidth: 600 }}>
             <TableHead sx={{ backgroundColor: brandColors.surfaceSubtle }}>
               <TableRow>

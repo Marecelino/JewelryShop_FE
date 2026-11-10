@@ -1,6 +1,6 @@
 {
-  "brandName": "JewelryShop",
-  "brandTagline": "Tinh hoa kim hoàn chế tác thủ công cao cấp",
+  "brandName": "Kim Ngân Phát",
+  "brandTagline": "Tiệm vàng & Chế tác kim hoàn cao cấp",
   "nav": {
     "collection": "Bộ Sưu Tập",
     "about": "Về Showroom",
@@ -36,11 +36,24 @@
     "updating": "Đang cập nhật tồn kho"
   },
   "footer": {
-    "promise": "Cam kết 100% vàng đủ tuổi, kim cương & đá quý tự nhiên có mã kiểm định quốc tế.",
-    "pickupNote": "Dịch vụ giữ chỗ trực tiếp tại showroom trong 15 phút. Nhận trang sức và thanh toán tại tiệm.",
-    "hours": "Giờ mở cửa: 08:30 – 21:00 (Thứ Hai – Chủ Nhật)",
-    "address": "Showroom: Tòa nhà Kim Hoàn, Hà Nội, Việt Nam",
-    "copyright": "© 2026 JewelryShop. Bản quyền thuộc về thương hiệu JewelryShop."
+    "brandTitle": "Tiệm Vàng Kim Ngân Phát",
+    "promise": "Thương hiệu chế tác kim hoàn và vàng bạc đá quý uy tín. Cam kết 100% vàng đủ tuổi, kim cương & đá quý tự nhiên có mã kiểm định độc lập. Giữ trọn giá trị qua từng thế hệ.",
+    "pickupNote": "Hệ thống khóa giữ chỗ 15 phút tại quầy. Quý khách trải nghiệm thực tế, kiểm định tuổi vàng quang phổ và thanh toán trực tiếp tại showroom.",
+    "showroomTitle": "Showroom Trải Nghiệm",
+    "address": "ĐT 746B, KP4, P. Bình Cơ, Hồ Chí Minh, Việt Nam",
+    "viewMap": "Chỉ đường trên Google Maps",
+    "hotline": "Hotline tư vấn: 0974 863 175",
+    "hours": "Giờ mở cửa: 08:30 – 21:00 (Tất cả các ngày trong tuần)",
+    "policyTitle": "Cam Kết Bảo An Kim Hoàn",
+    "policySpectroscopy": "Kiểm định tuổi vàng quang phổ trực tiếp tại quầy",
+    "policyReservation": "Khóa giữ chỗ an toàn 15 phút chống trùng món",
+    "policyLifetimeCare": "Bảo dưỡng, đánh bóng và làm sáng trọn đời",
+    "policyNoDelivery": "An toàn giá trị cao: Không giao bưu điện — Giao dịch tại showroom",
+    "paymentTitle": "Thanh Toán & Chứng Nhận",
+    "paymentMethods": "Tiền mặt, VietQR Napas 24/7, Thẻ ATM/Visa/MasterCard qua POS",
+    "bctCertified": "Đã thông báo Bộ Công Thương",
+    "tcvnCertified": "Đạt chuẩn đo lường vàng TCVN",
+    "copyright": "© Copyright Kim Ngân Phát. All rights reserved. Designed by Nguyễn Trọng Thứ"
   },
   "notFound": {
     "title": "404 — Không Tìm Thấy Trang",
@@ -53,4 +66,3 @@
     "backHome": "Quay Về Trang Chủ"
   }
 }
-

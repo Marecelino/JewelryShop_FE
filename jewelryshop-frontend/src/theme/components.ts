@@ -7,7 +7,8 @@ export const componentOverrides: Components<Theme> = {
       body: {
         backgroundColor: brandColors.background,
         color: brandColors.textPrimary,
-        minHeight: '100vh',
+        minHeight: '100dvh',
+        overflowX: 'hidden',
       },
       '::selection': {
         backgroundColor: brandColors.accent,
@@ -98,6 +99,12 @@ export const componentOverrides: Components<Theme> = {
         backgroundColor: brandColors.surface,
         border: `1px solid ${brandColors.border}`,
         boxShadow: '0 24px 48px -12px rgba(47, 41, 37, 0.18)',
+        '@media (max-width: 599.95px)': {
+          borderRadius: 12,
+          margin: 16,
+          width: 'calc(100% - 32px)',
+          maxHeight: 'calc(100dvh - 32px)',
+        },
       },
     },
   },

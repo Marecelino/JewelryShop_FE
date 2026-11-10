@@ -295,7 +295,7 @@ export const AdminInventoryPage: React.FC = () => {
             ))}
           </TextField>
 
-          <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2 }}>
             <TextField
               label="Mã vạch (Barcode)"
               required
@@ -311,7 +311,7 @@ export const AdminInventoryPage: React.FC = () => {
             />
           </Box>
 
-          <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2 }}>
             <TextField
               label="Trọng lượng thực tế (grams)"
               type="number"
@@ -328,7 +328,7 @@ export const AdminInventoryPage: React.FC = () => {
             />
           </Box>
 
-          <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2 }}>
             <TextField
               label="Mã chứng thư giám định (GIA / PNJ)"
               value={formData.certificateNumber}

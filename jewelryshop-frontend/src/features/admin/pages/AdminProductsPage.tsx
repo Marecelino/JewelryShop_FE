@@ -314,7 +314,7 @@ export const AdminProductsPage: React.FC = () => {
                       <IconButton
                         size="small"
                         onClick={() => handleOpenEdit(p)}
-                        sx={{ color: brandColors.secondary, mr: 1 }}
+                        sx={{ color: brandColors.secondary, mr: 1, minWidth: { xs: 40, sm: 32 }, minHeight: { xs: 40, sm: 32 } }}
                         aria-label="Chỉnh sửa"
                       >
                         <EditOutlinedIcon fontSize="small" />
@@ -322,7 +322,7 @@ export const AdminProductsPage: React.FC = () => {
                       <IconButton
                         size="small"
                         onClick={() => handleDelete(p.productId, p.productName)}
-                        sx={{ color: brandColors.textSecondary, '&:hover': { color: brandColors.error } }}
+                        sx={{ color: brandColors.textSecondary, minWidth: { xs: 40, sm: 32 }, minHeight: { xs: 40, sm: 32 }, '&:hover': { color: brandColors.error } }}
                         aria-label="Xóa"
                       >
                         <DeleteOutlinedIcon fontSize="small" />
@@ -365,7 +365,7 @@ export const AdminProductsPage: React.FC = () => {
             sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }}
           />
 
-          <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2 }}>
             <TextField
               select
               label="Thể loại"
@@ -388,7 +388,7 @@ export const AdminProductsPage: React.FC = () => {
             />
           </Box>
 
-          <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2 }}>
             <TextField
               label="Đá quý đính kèm"
               value={formData.gemstone}

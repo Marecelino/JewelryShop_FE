@@ -81,7 +81,7 @@ export const ProductDetailPage: React.FC = () => {
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
+    <Container maxWidth="lg" sx={{ py: { xs: 2.5, sm: 3, md: 4 }, px: { xs: 2, sm: 3 } }}>
       {/* Breadcrumbs */}
       <Breadcrumbs sx={{ mb: 3 }}>
         <Link component={RouterLink} to="/" color="inherit" underline="hover">
@@ -273,7 +273,7 @@ export const ProductDetailPage: React.FC = () => {
                 <IconButton
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                   disabled={quantity <= 1}
-                  sx={{ width: 40, height: 40, borderRadius: 2 }}
+                  sx={{ width: 44, height: 44, minWidth: 44, minHeight: 44, borderRadius: 2 }}
                   aria-label="Giảm số lượng"
                 >
                   <RemoveIcon fontSize="small" />
@@ -284,7 +284,7 @@ export const ProductDetailPage: React.FC = () => {
                 <IconButton
                   onClick={() => setQuantity((q) => Math.min(maxCanAdd, q + 1))}
                   disabled={quantity >= maxCanAdd}
-                  sx={{ width: 40, height: 40, borderRadius: 2 }}
+                  sx={{ width: 44, height: 44, minWidth: 44, minHeight: 44, borderRadius: 2 }}
                   aria-label="Tăng số lượng"
                 >
                   <AddIcon fontSize="small" />

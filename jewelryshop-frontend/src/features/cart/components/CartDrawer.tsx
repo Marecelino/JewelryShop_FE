@@ -79,7 +79,7 @@ export const CartDrawer: React.FC<Props> = ({ open, onClose }) => {
         <IconButton
           onClick={onClose}
           aria-label={t('common:actions.close', 'Đóng')}
-          sx={{ minWidth: 40, minHeight: 40, borderRadius: 2 }}
+          sx={{ minWidth: 44, minHeight: 44, borderRadius: 2 }}
         >
           <CloseIcon fontSize="small" />
         </IconButton>
@@ -235,7 +235,8 @@ export const CartDrawer: React.FC<Props> = ({ open, onClose }) => {
       {items.length > 0 && (
         <Box
           sx={{
-            p: 3,
+            p: { xs: 2.5, sm: 3 },
+            pb: 'calc(24px + env(safe-area-inset-bottom, 0px))',
             borderTop: `1px solid ${brandColors.border}`,
             backgroundColor: brandColors.surface,
             boxShadow: '0 -8px 24px rgba(47, 41, 37, 0.05)',

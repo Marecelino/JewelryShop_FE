@@ -178,7 +178,7 @@ export const AdminOrdersPage: React.FC = () => {
         <Alert severity="info" sx={{ borderRadius: 3 }}>Không tìm thấy đơn hàng nào phù hợp với bộ lọc.</Alert>
       ) : (
         <Card sx={{ borderRadius: 3.5, overflow: 'hidden' }}>
-          <CardContent sx={{ p: 0 }}>
+          <CardContent sx={{ p: 0, overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <Table sx={{ minWidth: 750 }}>
               <TableHead sx={{ backgroundColor: brandColors.surfaceSubtle }}>
                 <TableRow>

@@ -97,7 +97,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </Box>
 
       {/* Content */}
-      <CardContent sx={{ flexGrow: 1, p: 2.5, pb: 1, display: 'flex', flexDirection: 'column' }}>
+      <CardContent sx={{ flexGrow: 1, p: { xs: 1.5, sm: 2, md: 2.5 }, pb: 1, display: 'flex', flexDirection: 'column' }}>
         <Typography
           variant="caption"
           sx={{
@@ -105,7 +105,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
             fontWeight: 700,
             textTransform: 'uppercase',
             letterSpacing: '0.08em',
-            fontSize: '0.72rem',
+            fontSize: { xs: '0.65rem', sm: '0.72rem' },
             mb: 0.75,
           }}
         >
@@ -115,7 +115,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         <Typography
           variant="h3"
           sx={{
-            fontSize: '1.1rem',
+            fontSize: { xs: '0.925rem', sm: '1.05rem', md: '1.1rem' },
             fontWeight: 600,
             color: brandColors.textPrimary,
             lineHeight: 1.4,
@@ -133,7 +133,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           variant="body2"
           sx={{
             color: brandColors.textSecondary,
-            fontSize: '0.825rem',
+            fontSize: { xs: '0.775rem', sm: '0.825rem' },
             mb: 1.5,
           }}
         >
@@ -144,7 +144,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           variant="h3"
           sx={{
             mt: 'auto',
-            fontSize: '1.25rem',
+            fontSize: { xs: '1.05rem', sm: '1.15rem', md: '1.25rem' },
             fontWeight: 700,
             color: brandColors.primary,
             letterSpacing: '-0.01em',
@@ -155,7 +155,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </CardContent>
 
       {/* Actions */}
-      <CardActions sx={{ p: 2.5, pt: 0 }}>
+      <CardActions sx={{ p: { xs: 1.5, sm: 2, md: 2.5 }, pt: 0 }}>
         <Button
           fullWidth
           variant="outlined"
@@ -166,10 +166,10 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           onClick={handleAddToCart}
           sx={{
             borderRadius: 2.5,
-            minHeight: 40,
+            minHeight: { xs: 44, sm: 40 },
             borderColor: brandColors.borderStrong,
             fontWeight: 600,
-            fontSize: '0.875rem',
+            fontSize: { xs: '0.8rem', sm: '0.875rem' },
             '&:hover': {
               borderColor: brandColors.secondary,
               backgroundColor: 'rgba(176, 141, 87, 0.08)',

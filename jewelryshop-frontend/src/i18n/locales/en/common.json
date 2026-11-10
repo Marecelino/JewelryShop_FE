@@ -1,15 +1,15 @@
 {
-  "brandName": "JewelryShop",
-  "brandTagline": "Artisanal fine jewelry of timeless elegance",
+  "brandName": "Kim Ngan Phat",
+  "brandTagline": "Fine Jewelry Atelier & Gold Goldsmith",
   "nav": {
     "collection": "Collection",
-    "about": "Showroom",
-    "cart": "Cart",
+    "about": "About Atelier",
+    "cart": "Shopping Bag",
     "login": "Sign In",
-    "register": "Register",
+    "register": "Sign Up",
     "profile": "My Profile",
-    "orders": "My Orders",
-    "admin": "Admin Dashboard",
+    "orders": "My Reservations",
+    "admin": "Showroom Admin",
     "logout": "Sign Out",
     "menu": "Menu"
   },
@@ -22,11 +22,11 @@
     "edit": "Edit",
     "view": "View Details",
     "back": "Back",
-    "retry": "Retry",
+    "retry": "Try Again",
     "loading": "Processing...",
-    "search": "Search...",
+    "search": "Search jewelry...",
     "filter": "Filter",
-    "all": "All"
+    "all": "All Collections"
   },
   "status": {
     "active": "Active",
@@ -36,11 +36,24 @@
     "updating": "Updating stock"
   },
   "footer": {
-    "promise": "Certified purity gold, natural diamonds and gemstones with international certification.",
-    "pickupNote": "15-minute in-store physical reservation. Experience and pay at our showroom.",
-    "hours": "Opening hours: 08:30 – 21:00 (Mon – Sun)",
-    "address": "Showroom: Fine Jewelry Tower, Hanoi, Vietnam",
-    "copyright": "© 2026 JewelryShop. All rights reserved."
+    "brandTitle": "Kim Ngan Phat Fine Jewelry",
+    "promise": "Certified purity gold, natural diamonds and precious gemstones with independent certification. Preserving timeless elegance and trust across generations.",
+    "pickupNote": "Exclusive 15-minute in-store physical reservation. Experience, inspect gold purity, and complete payment directly at our showroom.",
+    "showroomTitle": "Showroom & Experience",
+    "address": "DT 746B, Quarter 4, Binh Co Ward, Ho Chi Minh City, Vietnam",
+    "viewMap": "Get directions on Google Maps",
+    "hotline": "Hotline consultation: 0974 863 175",
+    "hours": "Opening hours: 08:30 – 21:00 (Every day including holidays)",
+    "policyTitle": "Security & Atelier Policies",
+    "policySpectroscopy": "On-counter spectroscopy gold purity testing",
+    "policyReservation": "Secure 15-minute reservation lock prevents overlap",
+    "policyLifetimeCare": "Lifetime ultrasonic cleaning and polishing service",
+    "policyNoDelivery": "High-value policy: No postal delivery — In-store pick up only",
+    "paymentTitle": "Payment & Compliance",
+    "paymentMethods": "Cash, 24/7 VietQR Napas, POS Debit/Credit cards",
+    "bctCertified": "Registered with Ministry of Industry & Trade",
+    "tcvnCertified": "TCVN National Gold Standard certified",
+    "copyright": "© Copyright Kim Ngân Phát. All rights reserved. Designed by Nguyễn Trọng Thứ"
   },
   "notFound": {
     "title": "404 — Page Not Found",
@@ -53,4 +66,3 @@
     "backHome": "Back to Home"
   }
 }
-

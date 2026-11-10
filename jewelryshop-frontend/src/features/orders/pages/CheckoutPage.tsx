@@ -135,7 +135,7 @@ export const CheckoutPage: React.FC = () => {
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3.5 }}>
           {/* Showroom Physical Reservation Commitment Card */}
           <Card sx={{ borderRadius: 3.5, border: `1.5px solid ${brandColors.secondary}`, backgroundColor: brandColors.surfaceSubtle }}>
-            <CardContent sx={{ p: 3.5 }}>
+            <CardContent sx={{ p: { xs: 2, sm: 2.5, md: 3.5 } }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
                 <VerifiedOutlinedIcon sx={{ color: brandColors.secondary, fontSize: 28 }} />
                 <Typography variant="h3" sx={{ fontSize: '1.25rem', color: brandColors.primary, fontFamily: '"Playfair Display", Georgia, serif', fontWeight: 600 }}>
@@ -162,7 +162,7 @@ export const CheckoutPage: React.FC = () => {
                     BƯỚC 2
                   </Typography>
                   <Typography variant="body2" sx={{ fontWeight: 600, color: brandColors.primary }}>
-                    Đến Showroom Hà Nội
+                    Đến Showroom Kim Ngân Phát
                   </Typography>
                   <Typography variant="caption" sx={{ color: brandColors.textSecondary }}>
                     Đọc mã đơn hàng để nhân viên chuẩn bị khay nhung.
@@ -197,7 +197,7 @@ export const CheckoutPage: React.FC = () => {
           </Card>
 
           {/* Order Items Review Card */}
-          <Card sx={{ borderRadius: 3.5, p: 3 }}>
+          <Card sx={{ borderRadius: 3.5, p: { xs: 2, sm: 2.5, md: 3 } }}>
             <Typography variant="h3" sx={{ fontSize: '1.2rem', mb: 2, color: brandColors.primary }}>
               Danh Sách Món Giữ Chỗ ({totalQuantity} món)
             </Typography>
@@ -232,7 +232,7 @@ export const CheckoutPage: React.FC = () => {
           <Card
             sx={{
               borderRadius: 3.5,
-              p: 3.5,
+              p: { xs: 2, sm: 2.5, md: 3.5 },
               border: `1px solid ${brandColors.borderStrong}`,
               boxShadow: '0 16px 36px -12px rgba(47, 41, 37, 0.12)',
               backgroundColor: brandColors.surface,
